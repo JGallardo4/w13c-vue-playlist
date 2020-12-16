@@ -1,26 +1,36 @@
 <template>
 	<section id="play-list">
 		<ol id="play-list__container">
-			<li v-for="(song, index) in songs" :key="index" class="song">
-				<h1 class="song__title">{{ song.title }}</h1>
-				<h1 class="song__artist">{{ song.artist }}</h1>
-			</li>
+			<song-component 
+				v-for="(song, index) in songs" 
+				:key="index"
+				:songInfo="song"
+				:buttonInfo="{
+					label: 'Remove',
+					action: () => {
+						$emit('remove-from-playlist', index);
+					}
+				}"
+				class="song">
+			</song-component>
 		</ol>
 	</section>
 </template>
 
 <script>
+import SongComponent from "./SongComponent.vue";
+
 export default {
 	name: "play-list",
 
-	data: function () {
-		return {
-			songs: []
-		};
+	props: {
+		songs: {
+			type: Array
+		}
 	},
 
-	methods: {
-		
+	components: {
+		SongComponent
 	}
 }
 </script>
