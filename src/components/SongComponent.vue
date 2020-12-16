@@ -2,9 +2,8 @@
 	<li class="song">
 		<h1 class="song__title">{{ songInfo.title }}</h1>
 		<h1 class="song__artist">{{ songInfo.artist }}</h1>
-		<button class="song__button"
-			v-on:click="buttonInfo.action">
-			{{buttonInfo.label}}
+		<button class="song__button" v-on:click="buttonAction">
+			<slot></slot>
 		</button>
 	</li>
 </template>
@@ -15,19 +14,13 @@ export default {
 
 	props: {
 		songInfo: {
-			type: Object
+			type: Object,
 		},
 
-		buttonInfo: {
-			label: {
-				type: String
-			},
-
-			action: {
-				type: Function
-			}
-		}
-	}
+		buttonAction: {
+			type: Function,
+		},
+	},
 };
 </script>
 

@@ -4,17 +4,14 @@
 			<h1>My Playlist</h1>
 		</header>
 		<ol id="play-list__container">
-			<song-component 
-				v-for="(song, index) in songs" 
+			<song-component
+				v-for="(song, index) in songs"
 				:key="index"
 				:songInfo="song"
-				:buttonInfo="{
-					label: 'Remove',
-					action: () => {
-						$emit('remove-from-playlist', index);
-					}
-				}"
-				class="song">
+				:buttonAction="() => $emit('remove-from-playlist', index)"
+				class="song"
+			>
+				<i class="fa fa-minus" aria-hidden="true"></i>
 			</song-component>
 		</ol>
 	</section>
@@ -28,16 +25,15 @@ export default {
 
 	props: {
 		songs: {
-			type: Array
-		}
+			type: Array,
+		},
 	},
 
 	components: {
-		SongComponent
-	}
-}
+		SongComponent,
+	},
+};
 </script>
 
 <style>
-
 </style>

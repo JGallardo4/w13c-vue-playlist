@@ -34,13 +34,11 @@ export default {
 		addToPlaylist(aId) {
 			this.playList.push(this.songsAvailable[aId]);
 			this.songsAvailable.splice(aId, 1);
-			console.log(`Adding ${this.songsAvailable[aId].title} at ${aId}`);
 		},
 
 		removeFromPlaylist(aId) {
 			this.songsAvailable.push(this.playList[aId]);
 			this.playList.splice(aId, 1);
-			console.log(`Removing ${this.playList[aId].title} at ${aId}`);
 		},
 	},
 

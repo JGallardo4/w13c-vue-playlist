@@ -8,13 +8,10 @@
 				v-for="(song, index) in songs" 
 				:key="index"
 				:songInfo="song"
-				:buttonInfo="{
-					label: 'Add to playlist',
-					action: () => {
-						$emit('add-to-playlist', index);
-					}
-				}"
-				class="song">
+				:buttonAction="() => $emit('add-to-playlist', index)"
+				class="song"
+			>
+				<i class="fa fa-plus" aria-hidden="true"></i>
 			</song-component>
 		</ol>
 	</section>
