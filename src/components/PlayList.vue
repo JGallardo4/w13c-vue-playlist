@@ -1,5 +1,8 @@
 <template>
 	<section id="play-list">
+		<header id="play-list__header">
+			<h1>My Playlist</h1>
+		</header>
 		<ol id="play-list__container">
 			<song-component 
 				v-for="(song, index) in songs" 

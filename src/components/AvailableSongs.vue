@@ -1,5 +1,8 @@
 <template>
 	<section id="song-list">
+		<header id="song-list__header">
+			<h1>Available Songs</h1>
+		</header>
 		<ol id="song-list__container">
 			<song-component 
 				v-for="(song, index) in songs" 
@@ -21,7 +24,7 @@
 import SongComponent from "./SongComponent.vue";
 
 export default {
-	name: "song-list",
+	name: "available-songs",
 
 	props: {
 		songs: {
